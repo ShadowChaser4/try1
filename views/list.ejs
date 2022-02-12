@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>To do list</title>
-  </head>
+<%- include("header.ejs") -%>
   <body>
-    <h1>It's a <%= kindofday %> </h1>
+    <div class="box" id="heading">
 
-    <ul>
+       <h1><%= kindofday %> </h1>
+     </div>
 
-    <%  for (var i = 0; i < newitem.length; i++){  %>
-        <li><%= newitem[i] %> </li>
+    <div class="box">
+   <%  for (var i = 0; i < newitem.length; i++){  %>
+
+    <p class="item"><input type="checkbox"> <%= newitem[i] %>  </p>
     <%  }  %>
-    </ul>
     <form class="" action="/" method="post">
-      Enter the new item for the todo list <input type="text" name="new_item" placeholder="Enter a new item">
-
-      <button type="submit" name="button">Add</button>
+     <input type="text" name="new_item" placeholder="New Item" autocomplete="off">
+     <button type="submit" name="list" value ="<%= kindofday %>">+</button>
     </form>
+  </div>
 
-  </body>
-</html>
+<%- include("footer.ejs") -%>
