@@ -6,10 +6,12 @@
      </div>
 
     <div class="box">
-   <%  for (var i = 0; i < newitem.length; i++){  %>
+   <%  newitem.forEach((item)=>{%>
+  <form  action="/delete" method="post">
+    <p class="item"><input name= "checkbox" value =<%= item._id%> type="checkbox" onChange = "this.form.submit()" > <%= item.name %>  </p>
+  </form>
 
-    <p class="item"><input type="checkbox"> <%= newitem[i] %>  </p>
-    <%  }  %>
+   <% })%>
     <form class="" action="/" method="post">
      <input type="text" name="new_item" placeholder="New Item" autocomplete="off">
      <button type="submit" name="list" value ="<%= kindofday %>">+</button>
